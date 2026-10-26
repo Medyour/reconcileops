@@ -15,6 +15,8 @@
 
 `data_sources` décrit les sources interne et prestataire. `import_batches` identifie un fichier logique par son empreinte. `source_records` conserve les valeurs utiles au rapprochement et la charge originale protégée.
 
+L’action `ImportCsvBatch` lit et valide entièrement le fichier avant d’ouvrir une transaction. Elle contrôle la taille, l’UTF-8, l’en-tête exact, les types, les longueurs et les clés dupliquées. Une empreinte SHA-256 du fichier rend une répétition idempotente. Aucune ligne n’est enregistrée si le fichier contient une erreur.
+
 ### Exécutions
 
 `reconciliation_runs` lie exactement un lot interne et un lot prestataire. Une contrainte unique empêche de recalculer silencieusement la même paire.
