@@ -40,6 +40,17 @@ Le jeu initial couvre dix cas reproductibles : correspondance exacte, fenêtre d
 - les montants utilisent des unités mineures entières ;
 - toutes les données sont fictives.
 
+## Contrat CSV initial
+
+L’ordre des colonnes est strict : `record_key`, `external_reference`, `secondary_reference`, `occurred_on`, `amount_minor`, `currency`.
+
+- `occurred_on` utilise le format `YYYY-MM-DD` ;
+- `amount_minor` est un entier signé exprimé en unités mineures ;
+- `currency` contient exactement trois lettres ;
+- `record_key` est unique dans un fichier ;
+- le fichier est encodé en UTF-8 et limité à 1 Mio par défaut ;
+- une répétition du même fichier pour la même source retourne le lot existant.
+
 ## Version publique
 
 La démonstration publique sera en lecture seule. Les imports, modifications de règles et décisions manuelles seront réservés aux environnements local et de test.
