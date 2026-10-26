@@ -25,6 +25,8 @@ L’action `ImportCsvBatch` lit et valide entièrement le fichier avant d’ouvr
 
 `reconciliation_matches` relie une ligne de chaque source avec la règle et la justification appliquées. `reconciliation_exceptions` représente les doublons, absences, ambiguïtés et écarts.
 
+L’action `RunReconciliation` applique les règles dans un ordre fixe : correspondance exacte, fenêtre de date, clé composite, puis classification des écarts. Les lignes internes sont ordonnées par leur meilleure règle disponible afin qu’un écart de priorité inférieure ne puisse jamais consommer la contrepartie d’une correspondance exacte ultérieure. Les empreintes dupliquées sont exclues avant le rapprochement. Une ligne prestataire consommée ou impliquée dans une ambiguïté ne peut pas être réutilisée. La création de l’exécution, de ses résultats et de ses métriques reste dans une transaction unique.
+
 ### Décisions
 
 `reconciliation_decisions` ajoute l’historique d’une intervention simulée. Une décision ne supprime ni l’exception ni les données originales.
