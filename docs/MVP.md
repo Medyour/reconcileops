@@ -26,6 +26,8 @@ ReconcileOps rapproche un journal interne et un relevé prestataire fictifs. Le 
 
 Une règle plus faible ne doit jamais remplacer une correspondance déjà produite par une règle plus forte.
 
+Le moteur exclut d’abord toutes les lignes dont l’empreinte apparaît plusieurs fois dans un même lot. Il applique ensuite les règles exactes, la fenêtre de date puis la clé composite. Les références restantes deviennent des écarts de montant, de devise, de date, des ambiguïtés ou des absences. Une ligne prestataire ne peut participer qu’à un seul résultat.
+
 ## Scénarios de démonstration
 
 Le jeu initial couvre dix cas reproductibles : correspondance exacte, fenêtre de date, écart de montant, devise incohérente, doublon interne, doublon prestataire, absence interne, absence prestataire, ambiguïté et décision manuelle fictive historisée.
