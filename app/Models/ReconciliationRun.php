@@ -27,6 +27,11 @@ class ReconciliationRun extends Model
     /** @use HasFactory<ReconciliationRunFactory> */
     use HasFactory;
 
+    public function getRouteKeyName(): string
+    {
+        return 'public_id';
+    }
+
     public function internalBatch(): BelongsTo
     {
         return $this->belongsTo(ImportBatch::class, 'internal_batch_id');

@@ -28,6 +28,8 @@ Une règle plus faible ne doit jamais remplacer une correspondance déjà produi
 
 Le moteur exclut d’abord toutes les lignes dont l’empreinte apparaît plusieurs fois dans un même lot. Il applique ensuite les règles exactes, la fenêtre de date puis la clé composite. Les références restantes deviennent des écarts de montant, de devise, de date, des ambiguïtés ou des absences. Une ligne prestataire ne peut participer qu’à un seul résultat.
 
+L’interface publique expose la synthèse du dernier rapprochement, l’historique des exécutions et le détail explicable des correspondances, exceptions et décisions fictives. Ces routes sont strictement en lecture seule : aucun import ni changement de décision n’est disponible depuis la démonstration.
+
 ## Scénarios de démonstration
 
 Le jeu initial couvre dix cas reproductibles : correspondance exacte, fenêtre de date, écart de montant, devise incohérente, doublon interne, doublon prestataire, absence interne, absence prestataire, ambiguïté et décision manuelle fictive historisée.
