@@ -29,6 +29,8 @@ L’action `RunReconciliation` applique les règles dans un ordre fixe : corresp
 
 Les contrôleurs publics ne proposent que des lectures : tableau de bord, liste et détail d’une exécution. Les URLs utilisent l’ULID public de l’exécution plutôt que sa clé primaire interne. Les relations nécessaires sont chargées explicitement pour rendre les résultats sans requêtes implicites répétées.
 
+Les listes transversales de correspondances et d’exceptions valident leurs filtres dans des `FormRequest`, chargent uniquement les relations utiles et conservent les paramètres lors de la pagination. La page Architecture reste statique afin de documenter le système sans créer de dépendance opérationnelle supplémentaire.
+
 ### Décisions
 
 `reconciliation_decisions` ajoute l’historique d’une intervention simulée. Une décision ne supprime ni l’exception ni les données originales.

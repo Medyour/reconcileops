@@ -26,7 +26,7 @@
                     </span>
                 </a>
 
-                <nav class="flex items-center gap-1 rounded-2xl border border-white/10 bg-white/[0.03] p-1" aria-label="Navigation principale">
+                <nav class="flex max-w-full items-center gap-1 overflow-x-auto rounded-2xl border border-white/10 bg-white/[0.03] p-1" aria-label="Navigation principale">
                     <a href="{{ route('dashboard') }}" @class([
                         'rounded-xl px-4 py-2 text-sm font-medium transition',
                         'bg-white/10 text-white' => request()->routeIs('dashboard'),
@@ -37,6 +37,21 @@
                         'bg-white/10 text-white' => request()->routeIs('runs.*'),
                         'text-slate-400 hover:text-white' => ! request()->routeIs('runs.*'),
                     ])>Exécutions</a>
+                    <a href="{{ route('matches.index') }}" @class([
+                        'whitespace-nowrap rounded-xl px-4 py-2 text-sm font-medium transition',
+                        'bg-white/10 text-white' => request()->routeIs('matches.*'),
+                        'text-slate-400 hover:text-white' => ! request()->routeIs('matches.*'),
+                    ])>Correspondances</a>
+                    <a href="{{ route('exceptions.index') }}" @class([
+                        'whitespace-nowrap rounded-xl px-4 py-2 text-sm font-medium transition',
+                        'bg-white/10 text-white' => request()->routeIs('exceptions.*'),
+                        'text-slate-400 hover:text-white' => ! request()->routeIs('exceptions.*'),
+                    ])>Exceptions</a>
+                    <a href="{{ route('architecture') }}" @class([
+                        'whitespace-nowrap rounded-xl px-4 py-2 text-sm font-medium transition',
+                        'bg-white/10 text-white' => request()->routeIs('architecture'),
+                        'text-slate-400 hover:text-white' => ! request()->routeIs('architecture'),
+                    ])>Architecture</a>
                 </nav>
             </div>
         </header>

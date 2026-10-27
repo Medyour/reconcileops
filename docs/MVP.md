@@ -30,6 +30,8 @@ Le moteur exclut d’abord toutes les lignes dont l’empreinte apparaît plusie
 
 L’interface publique expose la synthèse du dernier rapprochement, l’historique des exécutions et le détail explicable des correspondances, exceptions et décisions fictives. Ces routes sont strictement en lecture seule : aucun import ni changement de décision n’est disponible depuis la démonstration.
 
+Des vues transversales permettent de filtrer les correspondances par règle ou référence, et les exceptions par type, état ou référence. La page Architecture expose le pipeline, la priorité des règles, les garanties et les limites assumées du démonstrateur.
+
 ## Scénarios de démonstration
 
 Le jeu initial couvre dix cas reproductibles : correspondance exacte, fenêtre de date, écart de montant, devise incohérente, doublon interne, doublon prestataire, absence interne, absence prestataire, ambiguïté et décision manuelle fictive historisée.
