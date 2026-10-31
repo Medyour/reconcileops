@@ -104,3 +104,18 @@ jobs:
       - name: Run Laravel tests
         run: php artisan test --compact
 
+  production-image:
+    name: Production image
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v7
+
+      - name: Validate deployment shell scripts
+        run: bash -n .do/*.sh
+
+      - name: Build production image
+        run: docker build --file .do/Dockerfile --tag reconcileops:ci .
+
