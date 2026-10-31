@@ -57,6 +57,18 @@
         </header>
 
         <main class="mx-auto w-full max-w-7xl px-5 py-10 sm:px-8 lg:py-14">
+            @if (session('status'))
+                <div class="mb-6 rounded-2xl border border-emerald-300/20 bg-emerald-300/[0.08] px-5 py-4 text-sm text-emerald-200" role="status">
+                    {{ session('status') }}
+                </div>
+            @endif
+
+            @if ($errors->has('decision'))
+                <div class="mb-6 rounded-2xl border border-rose-300/20 bg-rose-300/[0.08] px-5 py-4 text-sm text-rose-200" role="alert">
+                    {{ $errors->first('decision') }}
+                </div>
+            @endif
+
             @yield('content')
         </main>
 

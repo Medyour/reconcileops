@@ -97,6 +97,16 @@
                         </div>
                     @endforeach
 
+                    @if (
+                        app()->environment(['local', 'testing'])
+                        && config('reconcileops.allow_demo_decisions')
+                        && $exception->status === \App\ReconciliationExceptionStatus::Open
+                    )
+                        <a href="{{ route('runs.show', $exception->reconciliationRun) }}" class="mt-4 inline-flex rounded-xl border border-violet-300/20 bg-violet-300/[0.06] px-4 py-2.5 text-xs font-semibold text-violet-200 transition hover:bg-violet-300/10">
+                            Décider dans le détail de l’exécution
+                        </a>
+                    @endif
+
                     <div class="mt-5 flex items-center justify-between border-t border-white/10 pt-4 text-xs text-slate-600">
                         <span>Exécution</span>
                         <a href="{{ route('runs.show', $exception->reconciliationRun) }}" class="font-mono font-semibold text-cyan-300 hover:text-cyan-200">

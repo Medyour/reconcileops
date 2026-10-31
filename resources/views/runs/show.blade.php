@@ -193,6 +193,8 @@
                                 <p class="mt-2 text-sm leading-6 text-slate-400">{{ $decision->explanation }}</p>
                             </div>
                         @endforeach
+
+                        <x-decision-form :exception="$exception" />
                     </article>
                 @endforeach
             </div>

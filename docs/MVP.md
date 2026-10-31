@@ -32,6 +32,8 @@ L’interface publique expose la synthèse du dernier rapprochement, l’histori
 
 Des vues transversales permettent de filtrer les correspondances par règle ou référence, et les exceptions par type, état ou référence. La page Architecture expose le pipeline, la priorité des règles, les garanties et les limites assumées du démonstrateur.
 
+Une décision fictive peut être ajoutée à une exception ouverte uniquement lorsque `RECONCILEOPS_ALLOW_DEMO_DECISIONS=true` et que l’application s’exécute en environnement `local` ou `testing`. La première décision résout l’exception dans une transaction ; toute décision ultérieure est refusée. Cette capacité reste désactivée par défaut et inaccessible en production.
+
 ## Scénarios de démonstration
 
 Le jeu initial couvre dix cas reproductibles : correspondance exacte, fenêtre de date, écart de montant, devise incohérente, doublon interne, doublon prestataire, absence interne, absence prestataire, ambiguïté et décision manuelle fictive historisée.
