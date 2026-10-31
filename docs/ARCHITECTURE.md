@@ -31,6 +31,8 @@ Les contrôleurs publics ne proposent que des lectures : tableau de bord, liste 
 
 Les listes transversales de correspondances et d’exceptions valident leurs filtres dans des `FormRequest`, chargent uniquement les relations utiles et conservent les paramètres lors de la pagination. La page Architecture reste statique afin de documenter le système sans créer de dépendance opérationnelle supplémentaire.
 
+L’action `DecideReconciliationException` verrouille l’exception dans une transaction, ajoute une décision historisée puis marque l’exception résolue. Elle vérifie elle-même l’environnement et le drapeau de configuration, en complément de l’autorisation HTTP. Une exception résolue refuse toute seconde décision afin que l’historique ne puisse pas être remplacé.
+
 ### Décisions
 
 `reconciliation_decisions` ajoute l’historique d’une intervention simulée. Une décision ne supprime ni l’exception ni les données originales.
