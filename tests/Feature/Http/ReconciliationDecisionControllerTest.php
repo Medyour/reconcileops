@@ -14,6 +14,7 @@ class ReconciliationDecisionControllerTest extends TestCase
 
     public function test_decision_endpoint_is_forbidden_by_default(): void
     {
+        config()->set('reconcileops.allow_demo_decisions', false);
         $exception = ReconciliationException::factory()->create();
 
         $this->post(route('exceptions.decisions.store', $exception), [
