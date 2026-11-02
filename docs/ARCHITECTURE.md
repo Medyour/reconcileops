@@ -37,13 +37,15 @@ L’action `DecideReconciliationException` verrouille l’exception dans une tra
 
 `reconciliation_decisions` ajoute l’historique d’une intervention simulée. Une décision ne supprime ni l’exception ni les données originales.
 
-## Suite prévue
+### Production
 
-1. modèle de données et fixtures déterministes ;
-2. import et normalisation ;
-3. moteur de rapprochement transactionnel ;
-4. dashboard et vues de détail ;
-5. protection de la démonstration publique ;
-6. CI multi-base et image de production ;
-7. déploiement après validation complète.
+L'image de production multi-étapes installe séparément les dépendances PHP et construit les ressources Vite sans injecter de secret au build. Le service web vérifie sa configuration et l'état exact du jeu fictif avant de lancer Apache sur le port 8080.
+
+Le job avant déploiement vérifie la connexion, applique les migrations, restaure les données fictives dans une transaction et confirme les compteurs attendus. Le reset planifié réutilise la même action sans exécuter de migration. Une vérification exclusive refuse les comptes, sources, lots, lignes ou décisions qui ne correspondent pas au démonstrateur attendu.
+
+Le domaine, la liaison privée PostgreSQL et les réglages non sensibles sont décrits dans l'App Spec. `APP_KEY` reste une variable chiffrée limitée au service web. Le VPC du compte et le futur domaine de démarrage ne sont pas figés dans le dépôt.
+
+## État de livraison
+
+Le modèle, les imports, le moteur, l'interface, la protection publique, la CI multi-base et l'image de production sont couverts. La création des ressources DigitalOcean reste une opération manuelle distincte après revue et fusion de la configuration.
 

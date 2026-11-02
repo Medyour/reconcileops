@@ -10,6 +10,9 @@
         @vite(['resources/css/app.css', 'resources/js/app.js'])
     </head>
     <body class="min-h-screen bg-slate-950 text-slate-100 antialiased">
+        <a href="#main-content" class="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-50 focus:rounded-xl focus:bg-cyan-300 focus:px-4 focus:py-3 focus:font-semibold focus:text-slate-950">
+            Aller au contenu principal
+        </a>
         <header class="border-b border-white/10 bg-slate-950/95">
             <div class="mx-auto flex max-w-7xl flex-col gap-5 px-5 py-5 sm:px-8 lg:flex-row lg:items-center lg:justify-between">
                 <a href="{{ route('dashboard') }}" class="group flex items-center gap-3" aria-label="ReconcileOps — accueil">
@@ -56,7 +59,7 @@
             </div>
         </header>
 
-        <main class="mx-auto w-full max-w-7xl px-5 py-10 sm:px-8 lg:py-14">
+        <main id="main-content" class="mx-auto w-full max-w-7xl px-5 py-10 sm:px-8 lg:py-14">
             @if (session('status'))
                 <div class="mb-6 rounded-2xl border border-emerald-300/20 bg-emerald-300/[0.08] px-5 py-4 text-sm text-emerald-200" role="status">
                     {{ session('status') }}

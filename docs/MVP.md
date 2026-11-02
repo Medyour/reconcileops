@@ -61,7 +61,9 @@ L’ordre des colonnes est strict : `record_key`, `external_reference`, `seconda
 
 ## Version publique
 
-La démonstration publique sera en lecture seule. Les imports, modifications de règles et décisions manuelles seront réservés aux environnements local et de test.
+La démonstration publique est conçue en lecture seule. Les imports, modifications de règles et décisions manuelles restent réservés aux environnements local et de test. Le démarrage de production refuse explicitement `RECONCILEOPS_ALLOW_DEMO_DECISIONS=true`.
+
+Le déploiement cible un service web et PostgreSQL 18 sur DigitalOcean App Platform. Un job avant déploiement applique les migrations puis restaure le jeu fictif. Un job planifié le réinitialise chaque jour à 04:00 Europe/Paris. Les deux opérations refusent toute base contenant un compte ou des identifiants de données inconnus.
 
 ## Hors périmètre
 
