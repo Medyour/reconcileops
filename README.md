@@ -2,7 +2,7 @@
 
 ReconcileOps est une démonstration publique de rapprochement de données opérationnelles. Elle importe deux jeux fictifs, les normalise, applique des règles déterministes et rend chaque correspondance ou exception explicable.
 
-> État : MVP fonctionnel et configuration de déploiement DigitalOcean prête. Aucune ressource cloud n'est créée automatiquement par le dépôt.
+> État : MVP fonctionnel déployé sur [reconcileops.mkirchel.com](https://reconcileops.mkirchel.com). Le dépôt ne crée ni ne met à jour automatiquement les ressources cloud.
 
 ## Capacités
 
@@ -55,7 +55,7 @@ Le fichier [`.do/app.yaml`](.do/app.yaml) décrit une application App Platform �
 
 L'auto-déploiement est désactivé. Avant toute création, vérifier l'estimation affichée par DigitalOcean et sélectionner manuellement le VPC `default-lon1`. Après l'import du spec, ajouter uniquement au composant `web`, avec portée `RUN_TIME` et type chiffré `SECRET`, une variable `APP_KEY` Laravel valide.
 
-Le domaine principal prévu est `reconcileops.mkirchel.com`. Le CNAME Cloudflare devra rester en mode **DNS only**. La redirection du domaine de démarrage DigitalOcean sera ajoutée après sa génération afin de cibler exclusivement son nom exact et de conserver les chemins et paramètres.
+Le domaine principal est `reconcileops.mkirchel.com`. Le CNAME Cloudflare reste en mode **DNS only**. Le domaine de démarrage exact `reconcileops-7yflf.ondigitalocean.app` est limité par une redirection HTTPS 301 qui conserve le chemin et la chaîne de requête d'origine.
 
 La procédure complète se trouve dans [docs/DIGITALOCEAN_RUNBOOK.md](docs/DIGITALOCEAN_RUNBOOK.md).
 

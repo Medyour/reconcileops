@@ -54,6 +54,17 @@ class AppSpecTest extends TestCase
         $this->assertSame([
             'rules' => [
                 [
+                    'match' => [
+                        'authority' => ['exact' => 'reconcileops-7yflf.ondigitalocean.app'],
+                        'path' => ['prefix' => '/'],
+                    ],
+                    'redirect' => [
+                        'authority' => 'reconcileops.mkirchel.com',
+                        'scheme' => 'https',
+                        'redirect_code' => 301,
+                    ],
+                ],
+                [
                     'component' => ['name' => 'web'],
                     'match' => ['path' => ['prefix' => '/']],
                 ],
