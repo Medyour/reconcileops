@@ -62,7 +62,7 @@ Après attribution du domaine de démarrage DigitalOcean :
 2. laisser le proxy en mode **DNS only** ;
 3. attendre que `reconcileops.mkirchel.com` soit actif dans App Platform ;
 4. vérifier HTTPS et `/health` ;
-5. ajouter dans une PR séparée une redirection HTTPS 301 limitée au domaine de démarrage exact, sans `uri`, afin de préserver le chemin et la chaîne de requête.
+5. appliquer la redirection HTTPS 301 limitée au domaine de démarrage exact `reconcileops-7yflf.ondigitalocean.app`, sans `uri`, afin de préserver le chemin et la chaîne de requête.
 
 Ne pas créer une redirection depuis tous les domaines : elle provoquerait une boucle sur le domaine principal.
 
@@ -72,6 +72,7 @@ Résultats attendus après propagation DNS :
 
 - `https://reconcileops.mkirchel.com/` répond `200` ;
 - `https://reconcileops.mkirchel.com/health` répond `204` ;
+- `https://reconcileops-7yflf.ondigitalocean.app/health` renvoie `301` vers `https://reconcileops.mkirchel.com/health` ;
 - les tableaux et détails montrent uniquement les données fictives ;
 - aucun formulaire de décision locale n'est visible ;
 - les en-têtes CSP, HSTS, anti-framing et anti-MIME-sniffing sont présents ;

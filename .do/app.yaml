@@ -1,7 +1,7 @@
 # Add APP_KEY manually to the web component only as an encrypted SECRET
 # variable with RUN_TIME scope. Select the existing default-lon1 VPC manually
-# after importing this portable spec. The starter-domain redirect is added only
-# after DigitalOcean assigns the exact generated hostname.
+# after importing this portable spec. The exact starter-domain redirect
+# preserves the original path and query string.
 name: reconcileops
 region: lon
 domains:
@@ -143,6 +143,15 @@ databases:
       production: false
 ingress:
     rules:
+        - match:
+              authority:
+                  exact: reconcileops-7yflf.ondigitalocean.app
+              path:
+                  prefix: /
+          redirect:
+              authority: reconcileops.mkirchel.com
+              scheme: https
+              redirect_code: 301
         - component:
               name: web
           match:
